@@ -1,0 +1,8 @@
+.card {
+  &-movie {
+    &__overview {
+      height: 100px;
+      overflow: hidden;
+    }
+  }
+}
