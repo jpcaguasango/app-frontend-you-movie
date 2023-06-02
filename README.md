@@ -4,9 +4,11 @@ Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introdu
 
 ## Environment
 
-NUXT_PUBLIC_APP_NAME=
-NUXT_PUBLIC_BASE_URL_API=
-NUXT_PUBLIC_BASE_IMG=
+Create .env file
+
+- NUXT_PUBLIC_APP_NAME=
+- NUXT_PUBLIC_BASE_URL_API=
+- NUXT_PUBLIC_BASE_IMG=
 
 ## Setup
 
