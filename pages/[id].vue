@@ -15,7 +15,7 @@ await getMovie()
 </script>
 
 <template>
-  <v-container fluid>
+  <v-container v-if="movie" fluid>
     <v-row justify="center">
       <v-col cols="12" md="6" lg="5" align="center">
         <v-img
