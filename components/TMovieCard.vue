@@ -71,11 +71,11 @@ const { movie } = reactive(props)
     </div>
 
     <div class="ma-5">
-      <NuxtLink :to="`/${movie.id}`">
+      <a :href="`/${movie.id}`">
         <v-btn color="primary" variant="elevated" rounded="xl" block>
           See Detail
         </v-btn>
-      </NuxtLink>
+      </a>
     </div>
   </v-card>
 </template>

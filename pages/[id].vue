@@ -29,7 +29,7 @@ await getMovie()
           <p class="text-h4 mb-4">
             {{ movie.title }}
           </p>
-          <NuxtLink to="/">
+          <a href="/">
             <v-btn
               prepend-icon="mdi-undo"
               variant="elevated"
@@ -42,7 +42,7 @@ await getMovie()
 
               Back
             </v-btn>
-          </NuxtLink>
+          </a>
         </div>
         <div class="mb-5">
           <small class="me-2">{{ movie.date }}</small>
