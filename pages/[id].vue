@@ -5,8 +5,10 @@ const { baseIMG } = useRuntimeConfig().public
 const movie = ref({})
 
 async function getMovie() {
-  const { data } = await useMyFetch(`/movies/${id}`)
-  movie.value = data.value
+  try {
+    const { data } = await useMyFetch(`/movies/${id}`)
+    movie.value = data.value
+  } catch (error) {}
 }
 
 await getMovie()

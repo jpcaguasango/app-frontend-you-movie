@@ -40,8 +40,6 @@ async function getDataMovies() {
       const query = `?title=${search}&page=${page.value}`
       const { data } = await useMyFetch(`/movies/query/${query}`)
 
-      console.log(data)
-
       const { results, total_pages: totalPages } = data.value
       movies.value = results
       pages.totalPages = totalPages < 500 ? totalPages : 500
@@ -53,9 +51,7 @@ async function getDataMovies() {
     }
 
     scrollToTop()
-  } catch (error) {
-    console.log('', error)
-  }
+  } catch (error) {}
 }
 
 function resetFilter() {
