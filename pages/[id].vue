@@ -17,7 +17,7 @@ await getMovie()
     <v-row justify="center">
       <v-col cols="12" md="6" lg="5" align="center">
         <v-img
-          :src="`${baseIMG}${movie.poster_path}`"
+          :src="`${baseIMG}${movie.image}`"
           class="rounded-xl"
           width="80%"
         />
@@ -43,7 +43,7 @@ await getMovie()
           </NuxtLink>
         </div>
         <div class="mb-5">
-          <small class="me-2">{{ movie.release_date }}</small>
+          <small class="me-2">{{ movie.date }}</small>
           <v-icon
             color="success"
             icon="mdi-calendar-check"
@@ -61,7 +61,7 @@ await getMovie()
         <div class="mb-10">
           <p class="text-overline">Genders</p>
           <v-chip
-            v-for="gender in movie.genres"
+            v-for="gender in movie.genders"
             :key="gender.id"
             class="mr-2 mb-2"
             text-color="white"
@@ -76,14 +76,14 @@ await getMovie()
         <div class="mb-10">
           <p class="text-overline">Production Companies</p>
           <v-chip
-            v-for="company in movie.production_companies"
+            v-for="company in movie.productionCompanies"
             :key="company.id"
             class="mr-2 mb-2"
             text-color="white"
             color="blue"
           >
             <v-icon start icon="mdi-video-outline"></v-icon>
-            {{ company.name }} ({{ company.origin_country }})
+            {{ company.name }} ({{ company.country }})
           </v-chip>
         </div>
 
@@ -91,7 +91,7 @@ await getMovie()
           <p class="text-overline">Popularity</p>
           <div>
             <v-rating
-              :model-value="movie.vote_average"
+              :model-value="movie.average"
               class="my-2"
               color="amber"
               density="comfortable"
@@ -102,7 +102,7 @@ await getMovie()
             />
 
             <p class="text-grey">
-              {{ movie.vote_average.toFixed(1) }}
+              {{ movie.average.toFixed(1) }}
               ({{ movie.popularity }})
             </p>
           </div>

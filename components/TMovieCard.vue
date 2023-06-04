@@ -21,7 +21,7 @@ const { movie } = reactive(props)
     max-width="374"
   >
     <v-img
-      :src="`${baseIMG}${movie.poster_path}`"
+      :src="`${baseIMG}${movie.image}`"
       min-height="600"
       height="100%"
       cover
@@ -37,7 +37,7 @@ const { movie } = reactive(props)
       <v-card-title> {{ movie.title }} </v-card-title>
 
       <v-card-subtitle>
-        <span class="me-2">{{ movie.release_date }}</span>
+        <span class="me-2">{{ movie.date }}</span>
         <v-icon color="success" icon="mdi-calendar-check" size="small"></v-icon>
       </v-card-subtitle>
     </v-card-item>
@@ -54,7 +54,7 @@ const { movie } = reactive(props)
       <v-card-title>Popularity</v-card-title>
 
       <v-rating
-        :model-value="movie.vote_average"
+        :model-value="movie.average"
         class="my-2"
         color="amber"
         density="compact"
@@ -65,7 +65,7 @@ const { movie } = reactive(props)
       />
 
       <div class="text-grey">
-        {{ movie.vote_average.toFixed(1) }}
+        {{ movie.average.toFixed(1) }}
         ({{ movie.popularity }})
       </div>
     </div>

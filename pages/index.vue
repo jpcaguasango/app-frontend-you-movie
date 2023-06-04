@@ -33,23 +33,29 @@ function scrollToTop() {
  *
  */
 async function getDataMovies() {
-  const { search } = queryFilter
+  try {
+    const { search } = queryFilter
 
-  if (search) {
-    const query = `?title=${search}&page=${page.value}`
-    const { data } = await useMyFetch(`/movies/query/${query}`)
+    if (search) {
+      const query = `?title=${search}&page=${page.value}`
+      const { data } = await useMyFetch(`/movies/query/${query}`)
 
-    const { results, total_pages: totalPages } = data.value
-    movies.value = results
-    pages.totalPages = totalPages < 500 ? totalPages : 500
-  } else {
-    const { data } = await useMyFetch(`/movies/page/${page.value}`)
-    const { results, total_pages: totalPages } = data.value
-    movies.value = results
-    pages.totalPages = totalPages < 500 ? totalPages : 500
+      console.log(data)
+
+      const { results, total_pages: totalPages } = data.value
+      movies.value = results
+      pages.totalPages = totalPages < 500 ? totalPages : 500
+    } else {
+      const { data } = await useMyFetch(`/movies/page/${page.value}`)
+      const { results, total_pages: totalPages } = data.value
+      movies.value = results
+      pages.totalPages = totalPages < 500 ? totalPages : 500
+    }
+
+    scrollToTop()
+  } catch (error) {
+    console.log('', error)
   }
-
-  scrollToTop()
 }
 
 function resetFilter() {
@@ -73,12 +79,12 @@ const getItems = computed(() => {
     return movies.value
       .filter(
         (item) =>
-          (item.vote_average >= score && item.vote_average < score + 1) ||
-          item.release_date === year
+          (item.average >= score && item.average < score + 1) ||
+          item.date === year
       )
       .sort((a, b) => {
-        if (a.vote_average === b.vote_average) return 0
-        if (a.vote_average > b.vote_average) return -1
+        if (a.average === b.average) return 0
+        if (a.average > b.average) return -1
         return 1
       })
   }
